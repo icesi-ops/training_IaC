@@ -5,6 +5,7 @@
 
 > "The idea behind infrastructure as code (IAC) is that you write and execute code to define, deploy, update, and destroyyour > infrastructure. This represents an important shift in mindset in whichyou treat all aspects of operations as software—even > those aspects that represent hardware (e.g., setting upphysical servers). In fact, a key insight of DevOps is that youcan > manage almost everything in code, including servers, databases, networks, log files, application configuration,documentation, > automated tests, deployment processes, and so on." (Terraform up running: 2ed)
 
+## Types IaC
 - Ad Hoc Scripts
 - Configuration Management Tools (Coding conventions, Idempotence, Distribution)
 - Sever templating tools (Docker, Packer, Vagrant)
