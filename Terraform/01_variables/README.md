@@ -21,3 +21,11 @@ variable "number_example" {
 ```  
 Go to work directory and create into the folder a file named variables.tf and add the variables that your consider for dont do DRY.
 
+In addition to input variables, Terraform also allows you to define output variables by using the following syntax:
+```
+output "<NAME>" {  
+value = <VALUE>  [CONFIG ...]
+}
+```
+
+Go to work directory and create into the folder a file name outputs.tf
