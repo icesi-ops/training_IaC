@@ -9,7 +9,16 @@
 - Reusabilidad   
 ![alt file](https://i.ibb.co/XkxJgFh/img1.png "SaltStack")  
 
-- Different Modes (Masterless -  Master Minion)
+- Different Modes (Masterless -  Master Minion)  
+
+## Concepts  
+
+- **States** are the files which describe the desired state of a machine. Here we write instructions for installing packages, modifying files, updating permissions, and so on.
+- **Pillars** are the files in which we define variables to help make States more portable and
+flexible.
+- **Grains** are pieces of information gathered on the minion host itself. These include details about the OS, environment, the hardware platform, and others.
+- The Salt File Server stores any files, scripts, or other artifacts which may be referenced in the States.
+- The Salt **Top file(s)** are used to map States and/or Pillars to minions
 
 ## Task
 Here is our task-list:
