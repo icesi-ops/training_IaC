@@ -1,5 +1,5 @@
 include:
-  - nodejs:
+  - nodejs
 
 aik-ui:
   git.latest:
