@@ -20,17 +20,17 @@ end
 ```
 
 Deploy vm  
-``` 
+```bash 
 vagrant up 
 ```
 
 Connect through SHH to VM  
-``` 
+```bash 
 vagrant ssh 
 ```
 
 Sync folder  
-```
+```rb
 config.vm.synced_folder "src/", "/srv/website" 
 ```
 
@@ -41,27 +41,32 @@ Networking: Vagrant provides 3 ways for you are able to connect your guest machi
 
 Could you explain us the meaning of each one?  
 
-```
+```rb
 config.vm.network "forwarded_port", guest: 80, host: 8080
 ``` 
-```
+```rb
 config.vm.network "private_network", ip: "192.168.50.4"
 ```  
-```
+```rb
 config.vm.network "public_network" 
 ```  
 
 Add provider  
-``` 
+``` rb
 server.vm.provider "virtualbox" do |vb| 
 ```
 
 Customize VM provider  
-``` 
+``` rb
 vb.customize ["modifyvm", :id, "--memory", "512", "--cpus", "1", "--name", "centos_srv"]  
    end
 ```
-  
+
+Provisioning the VM
+```bash
+vagrant up
+```
+
 Cool?   
 
 
