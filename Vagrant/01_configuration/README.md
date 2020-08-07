@@ -69,5 +69,6 @@ vagrant up
 
 Cool?   
 
-
+### References
+https://www.vagrantup.com/intro/getting-started
  
