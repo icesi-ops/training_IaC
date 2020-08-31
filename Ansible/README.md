@@ -10,6 +10,11 @@
 - Python 2.7 or 3.6
 - Vagrant
 
+## Verifying installation
+```
+ansible --version
+```
+
 ## Ansible
 
 ![alt text](https://i.ibb.co/f42gRY8/ansible2.png "Logo Title Text 1")
@@ -86,8 +91,8 @@ Make new file 01-ping.yml
     - debug: msg="Hello Servers"
 ```
 
-Look 02-shell.yml and run
-Look 03-variables.yml and run
-Look 05-install-httpd.yml and run
+- Look 02-shell.yml and run  
+- Look 03-variables.yml and run  
+- Look 05-install-httpd.yml and run  
 
 
