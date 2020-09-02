@@ -36,7 +36,7 @@ web.vm.provision "ansible" do |ansible|
 
 - New dirs and playbooks
 
-Go to playbooks dir ```  sh  cd playbooks ```  
+Go to playbooks dir ```  cd playbooks ```  
   
 Make directory haproxy ```  mkdir haproxy  ```  
 
@@ -106,7 +106,7 @@ We make the playbook that install and configure ours webservers
 
 Now we create dir templates into playbooks/httpd ```  mkdir templates  ```
 
-Download the template ```   wget <url raw>  ```
+Download the template ```   wget https://raw.githubusercontent.com/icesi-ops/training_IaC/master/Ansible/04_load_balancer/templates/index.j2 ```
 
 
 We already have each component of ours SD configured through IaC, remember  
