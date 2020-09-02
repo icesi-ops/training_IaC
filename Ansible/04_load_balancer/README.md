@@ -68,7 +68,7 @@ We make the playbook that install and configure a loadbalancer.
 
 Now we create dir templates ```  mkdir templates  ```  
 
-into it we going to download ```  wget <url al raw>  ```
+into it we going to download ```  wget https://raw.githubusercontent.com/icesi-ops/training_IaC/master/Ansible/04_load_balancer/templates/haproxy.j2  ```
 
 If you want can run until this part and test that loadbalancer has been created and configured.
 
