@@ -1,14 +1,14 @@
-# Distributed File System
+# Distributed File System (With Glusterfs)
 
 ![alt text](https://docs.gluster.org/en/v3/images/640px-GlusterFS_Architecture.png "gluster")  
 > Gluster is a scalable, distributed file system that aggregates disk storage resources from multiple servers into a single global namespace.
 
 ## Volumes  
 
-- Distributed Glusterfs Volume
+- Distributed Glusterfs Volume  
 ![img](https://cloud.githubusercontent.com/assets/10970993/7412364/ac0a300c-ef5f-11e4-8599-e7d06de1165c.png)
 
-- Replicated Glusterfs Voume
+- Replicated Glusterfs Voume  
 ![img2](https://cloud.githubusercontent.com/assets/10970993/7412379/d75272a6-ef5f-11e4-869a-c355e8505747.png)
 
 - Striped Glusterfs Volume  
