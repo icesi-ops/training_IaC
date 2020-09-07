@@ -1,0 +1,9 @@
+{
+    "files.watcherExclude": {
+        "**/.git/objects/**": false,
+        "**/.git/subtree-cache/**": false
+    },
+    "files.exclude": {
+        "**/.git": false
+    }
+}
