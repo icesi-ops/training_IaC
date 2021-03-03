@@ -1,0 +1,68 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+    - vars/main.yml
+  pre_tasks:
+    - name: Ensure epel repository exists
+      yum: name=epel-release
+    - name: Install openssl dependencies
+      yum: 
+        name:
+          - gcc
+          - openssl-devel
+          - bzip2-devel
+          - libffi-devel
+          - zlib-devel
+    - name: Turn on firewalld
+      service: name=firewalld state=started enabled=yes
+    - name: download and unpack python3
+      unarchive:
+        src:  https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz 
+        dest: /tmp
+        remote_src: yes
+        keep_newer: yes
+    - name: Execute configure
+      shell: "cd /tmp/Python-3.7.9/ && sudo ./configure --enable-optimizations"
+    - name: make install
+      make:
+        chdir: /tmp/Python-3.7.9
+        target: altinstall
+      become: true
+    - name: Install python dependencies
+      shell: sudo /usr/local/bin/pip3.7 install pyopenssl
+      become: true
+  tasks:
+    - import_tasks: tasks/self-signed-cert.yml
+    - name: Install nginx 
+      yum:
+        name:
+          - nginx
+    - name: Enable firewall
+      shell: "firewall-cmd --permanent --add-service={http,https}"
+    - name: Start firewall rule
+      shell: "firewall-cmd --reload"
+    - name: Ensure docroot exists
+      file:
+        path: "{{nginx_docroot}}"
+        state: directory
+    - name: Copy html file
+      copy: 
+        src: files/index.html
+        dest: "{{nginx_docroot}}/index.html"
+        mode: 0755
+    - name: Run python server
+      shell: > 
+        python3.7 -m http.server 8083 --directory {{nginx_docroot}} &
+    - name: Nginx configuration server
+      template:
+        src: templates/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+        mode: 0644
+    - name: Restart nginx
+      service: name=nginx state=restarted enabled=yes
+    - name: COnfigure SO to allow to nginx make the proxyredirect
+      shell: setsebool httpd_can_network_connect on -P
+
+
+

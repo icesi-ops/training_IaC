@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "nginx" do |nginx|
+    nginx.vm.box = "centos/7"
+    nginx.vm.hostname = "sistemasdistribuidos"
+    nginx.vm.network "private_network", ip: "192.168.33.200"
+    nginx.vm.provider "virtualbox" do |vb|
+     vb.customize ["modifyvm", :id, "--memory", "512", "--cpus", "1", "--name", "nginx"]
+    end
+    nginx.vm.provision "ansible" do |ansible|
+      ansible.playbook = "playbooks/nginx/main.yml"
+    end  
+  end
+end

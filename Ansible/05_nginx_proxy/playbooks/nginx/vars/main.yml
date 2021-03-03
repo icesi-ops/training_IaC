@@ -1,0 +1,5 @@
+certificate_dir: /etc/ssl/private
+server_hostname: sistemasdistribuidos
+nginx_docroot: /usr/share/nginx/html
+pip_install_packages: ['pyopenssl']
+

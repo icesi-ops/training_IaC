@@ -1,0 +1,24 @@
+---
+- name: Ensure directory exists for self-signed certs
+  file:
+    path: "{{ certificate_dir }}/{{ server_hostname }}"
+    state: directory
+
+- name: Generate Private key
+  openssl_privatekey:
+    path: "{{ certificate_dir }}/{{server_hostname}}/privkey.pem"
+  become: false
+- name: Generate CSR
+  openssl_csr:
+    path: "{{ certificate_dir}}/{{server_hostname}}.csr"
+    privatekey_path: "{{certificate_dir}}/{{server_hostname}}/privkey.pem"
+    common_name: "{{ server_hostname }}"
+  become: false
+
+- name: Generate self signeed certificate
+  openssl_certificate:
+    path: "{{certificate_dir}}/{{server_hostname}}/fullchain.pem"
+    privatekey_path: "{{ certificate_dir}}/{{server_hostname}}/privkey.pem"
+    csr_path: "{{certificate_dir}}/{{server_hostname}}.csr"
+    provider: selfsigned
+  become: false
