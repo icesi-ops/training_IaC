@@ -1,0 +1,7 @@
+---
+- hosts: servers
+  tasks:
+   - name: Execute Shell Commands
+     shell: uname
+     register: uname_result
+   - debug: msg="{{ uname_result.stdout }}"

@@ -1,0 +1,10 @@
+---
+- hosts: servers
+  become: true
+  tasks:
+    - yum:
+        name:
+          - httpd
+        state: present
+    - service: name=httpd state=started enabled=yes
+    - raw: "echo Welcome to Sistemas Distribuidos  | sudo tee /var/www/html/index.html"

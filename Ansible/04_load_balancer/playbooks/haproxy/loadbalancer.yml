@@ -1,0 +1,20 @@
+---
+- hosts: lb
+  become: true
+  tasks:
+   - name: "install haproxy"
+     yum:
+       name:
+        - haproxy
+   - name: "configure haproxy"
+     template:
+       src: templates/haproxy.j2
+       dest: /etc/haproxy/haproxy.cfg
+       owner: root
+       group: wheel
+       mode: '0644'
+   - name: "Restar and enabled haproxy"
+     service:
+      name: haproxy
+      state: restarted
+      enabled: yes

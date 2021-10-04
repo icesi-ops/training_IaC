@@ -51,3 +51,4 @@ config.vm.define "lb" do |lb|
    db.vm.provision "shell", inline: "echo Iam DB server"
   end
 end
+end
