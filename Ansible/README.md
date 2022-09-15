@@ -60,7 +60,7 @@ ansible dbservers -a "whoami"
 
 Also, we can create groups that contains other groups
 ```
-[first]
+[first:children]
 servers
 dbservers
 ```
